@@ -26,19 +26,35 @@
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>1.0.1.Final</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-						<phase>install</phase>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<activation>
+				<file>
+					<exists>C:/projects/PD/PAC/wildfly-8.0.0.Final/standalone/deployments/</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>1.0.1.Final</version>
+						<configuration>
+							<targetDir>C:/projects/PD/PAC/wildfly-8.0.0.Final/standalone/deployments/</targetDir>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+								<phase>install</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
