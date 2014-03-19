@@ -10,7 +10,7 @@ public interface CourseService {
 
 	Course addCourse(Course course);
 
-	void deleteCourse(Long id);
+	void deleteCourse(String id);
 
 	List<Course> readCourses();
 

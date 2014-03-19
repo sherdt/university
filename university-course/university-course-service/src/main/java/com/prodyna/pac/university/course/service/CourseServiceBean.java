@@ -29,7 +29,7 @@ public class CourseServiceBean implements CourseService {
 	}
 
 	@Override
-	public void deleteCourse(final Long id) {
+	public void deleteCourse(final String id) {
 		final Course course = this.entityManager.find(Course.class, id);
 		this.entityManager.remove(course);
 	}

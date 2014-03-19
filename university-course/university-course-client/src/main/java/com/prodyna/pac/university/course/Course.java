@@ -3,8 +3,6 @@ package com.prodyna.pac.university.course;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,16 +18,27 @@ public class Course implements Serializable {
 	 * Generated serial version UID.
 	 */
 	private static final long serialVersionUID = -729486818742117407L;
+
+	/**
+	 * UUID format should be used as id;
+	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
+
+	/**
+	 * Course name.
+	 */
 	private String name;
+
+	/**
+	 * Description for the course.
+	 */
 	private String description;
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return this.id;
 	}
 
@@ -37,7 +46,7 @@ public class Course implements Serializable {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(final Long id) {
+	public void setId(final String id) {
 		this.id = id;
 	}
 
